@@ -1,24 +1,24 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#37302f";
-static const char col_gray2[]       = "#433632";
-static const char col_gray3[]       = "#3b2e2b";
-static const char col_gray4[]       = "#231b1a";
+static const char col_gray1[]       = "#5f5b58";
+static const char col_gray2[]       = "#666666";
+static const char col_gray3[]       = "#474747";
+static const char col_gray4[]       = "#333333";
 static const char col_cyan[]        = "#7A3331";
 static const char col_white[]       = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_white, col_gray3, col_gray2 },
 	[SchemeSel]  = { col_white, col_cyan,  col_cyan  },
-	[SchemeInfoNorm] = { col_white, col_gray1, "#000000" },
+	[SchemeInfoNorm] = { col_white, col_gray3, "#000000" },
 };
 
 /* tagging */
@@ -60,7 +60,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon};
+static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL};
+static const char *roficmd2[] = { "rofi", "-show", "run", NULL};
+static const char *roficmd3[] = { "rofi", "-show", "ssh", NULL};
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname };
@@ -68,6 +70,8 @@ static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = roficmd2 } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = roficmd3 } }, 
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
