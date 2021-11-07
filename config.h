@@ -10,9 +10,9 @@ static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#5f5b58";
 static const char col_gray2[]       = "#666666";
-static const char col_gray3[]       = "#474747";
+static const char col_gray3[]       = "#282a36";
 static const char col_gray4[]       = "#333333";
-static const char col_cyan[]        = "#7A3331";
+static const char col_cyan[]        = "#44475a";
 static const char col_white[]       = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
