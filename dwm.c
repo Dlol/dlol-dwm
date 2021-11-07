@@ -1421,7 +1421,6 @@ void
 removesystrayicon(Client *i)
 {
 	Client **ii;
-+
 	if (!showsystray || !i)
 		return;
 	for (ii = &systray->icons; *ii && *ii != i; ii = &(*ii)->next);
@@ -1522,7 +1521,6 @@ resizerequest(XEvent *e)
 {
 	XResizeRequestEvent *ev = &e->xresizerequest;
 	Client *i;
-+
 	if ((i = wintosystrayicon(ev->window))) {
 		updatesystrayicongeom(i, ev->width, ev->height);
 		resizebarwin(selmon);
@@ -1662,7 +1660,6 @@ setfocus(Client *c)
 			XA_WINDOW, 32, PropModeReplace,
 			(unsigned char *) &(c->win), 1);
 	}
-	sendevent(c, wmatom[WMTakeFocus]);
 	sendevent(c->win, wmatom[WMTakeFocus], NoEventMask, wmatom[WMTakeFocus], CurrentTime, 0, 0, 0);
 }
 
@@ -2277,17 +2274,17 @@ updatesystrayicongeom(Client *i, int w, int h)
 		}
 	}
 }
-+
+
 void
 updatesystrayiconstate(Client *i, XPropertyEvent *ev)
 {
 	long flags;
 	int code = 0;
-+
+
 	if (!showsystray || !i || ev->atom != xatom[XembedInfo] ||
 			!(flags = getatomprop(i, xatom[XembedInfo])))
 		return;
-+
+
 	if (flags & XEMBED_MAPPED && !i->tags) {
 		i->tags = 1;
 		code = XEMBED_WINDOW_ACTIVATE;
