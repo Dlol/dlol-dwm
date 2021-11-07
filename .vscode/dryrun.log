@@ -1,0 +1,8 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/dlol/dwm-6.2'
+echo dwm build options:
+echo "CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/X11R6/include -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"6.2\" -DXINERAMA"
+echo "LDFLAGS  = -L/usr/X11R6/lib -lX11 -lXinerama -lfontconfig -lXft"
+echo "CC       = cc"
+make: Leaving directory '/home/dlol/dwm-6.2'
+ 
